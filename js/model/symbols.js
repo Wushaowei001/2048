@@ -1,21 +1,17 @@
-define([ 'backbone', 'model/symbol' ], function(Backbone, Symbol) {
-
+define(['backbone', 'model/symbol'], function(Backbone, Symbol) {
 	var Symbols = Backbone.Collection.extend({
-		model : Symbol,
-
-		sum : function() {
+		model: Symbol,
+		sum: function() {
 			return this.reduce(function(memo, symbol) {
 				return memo + symbol.get('value');
 			}, 0);
 		},
-
-		byName : function(name) {
+		byName: function(name) {
 			return this.findWhere({
-				'name' : name
+				'name': name
 			});
 		}
 	});
 
 	return Symbols;
-
 });

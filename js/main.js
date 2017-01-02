@@ -19,5 +19,6 @@ require.config({
 });
 
 require([ 'view/application' ], function(ApplicationView) {
+
 	new ApplicationView();
 });
