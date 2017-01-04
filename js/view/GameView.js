@@ -22,12 +22,9 @@ define(
 				}]
 			],
 			initialize: function() {},
-
 			render: function() {
 				// clear game view
 				this.$el.empty();
-
-				
 				var i, j, tile;
 				for (i = 0; i < 4; i++) {
 					for (j = 0; j < 4; j++) {
@@ -53,7 +50,7 @@ define(
 					var chosenTile = emptyTiles[this.randomNumber(0, emptyTiles.length - 1)];
 					var randomSymbols = this.seedSymbols[this.randomNumber(0, this.seedSymbols.length - 1)];
 					var symbols = new Symbols();
-					console.log('randomSymbols.length',randomSymbols.length);
+					console.log('randomSymbols.length', randomSymbols.length);
 					for (var i = 0, numOfSymbols = randomSymbols.length; i < numOfSymbols; i++) {
 						var symbol = new Symbol({
 							name: randomSymbols[i].name,
@@ -85,6 +82,28 @@ define(
 					console.log(nonEmptyTiles[i].get('symbols'));
 				}
 				return edgesDetected;
+			},
+			move: function(dir) {
+				var moves = {
+					'r': this.moveRight,
+					'l': this.moveLeft,
+					'u': this.moveUp,
+					'd': this.moveDown
+				};
+				moves[dir]();
+			},
+			moveRight: function() {
+				
+				console.log('right');
+			},
+			moveLeft: function() {
+				console.log('left');
+			},
+			moveUp: function() {
+				console.log('up');
+			},
+			moveDown: function() {
+				console.log('down');
 			}
 		});
 		return GameView;
